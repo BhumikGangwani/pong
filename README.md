@@ -5,9 +5,12 @@ The retro game of pong developed using turtle graphics.
 ## Setup
 Clone this repository to a local directory. Refer to [GitHub Pages](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) for more guidance.
 
-Next, you should install the package neccessary to run **main.py**: *turtle*. You can install these using **pip**:
+Next, you should install the package neccessary to run **main.py**: *turtle,* and *time*. You can install these using **pip**:
 ```
 - pip install turtle
+```
+```
+- pip install time
 ```
 
 Now your setup is complete!
