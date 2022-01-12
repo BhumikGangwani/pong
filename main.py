@@ -2,13 +2,13 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
+import time
 
 # Create Objects that are needed
 paddle1 = Paddle(-450)
 paddle2 = Paddle(450)
 game_ball = Ball()
 score_keeper = Scoreboard()
-import time
 
 # Setup the game screen
 screen = Screen()
@@ -38,7 +38,8 @@ while game_in_progress:
     # Detect collision with paddle
     if game_ball.xcor() > 430 or game_ball.xcor() < -430:
         if game_ball.distance(paddle2.pos()) < 50 or game_ball.distance(paddle1.pos()) < 50:
-            game_ball.increase_speed()
+            if game_ball.ball_speed < 30:
+                game_ball.increase_speed()
             game_ball.reverse_x()
 
     # Detect when right paddle misses
@@ -47,6 +48,7 @@ while game_in_progress:
         score_keeper.update_score(1)
         score_keeper.display_score()
         game_ball.reset_pos()
+
     # Detect when left paddle misses
     elif game_ball.xcor() < -500:
         rounds += 1
@@ -54,7 +56,7 @@ while game_in_progress:
         score_keeper.display_score()
         game_ball.reset_pos()
 
-    if rounds > 9:
+    if score_keeper.score1 == 5 or score_keeper.score2 == 5:
         score_keeper.game_over()
         game_in_progress = False
 

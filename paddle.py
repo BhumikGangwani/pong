@@ -11,10 +11,12 @@ class Paddle(Turtle):
         self.pu()
         self.goto(xcor, 0)
 
+    # Paddle control to move up
     def go_up(self):
         if self.ycor() <= 220:
             self.fd(20)
 
+    # Paddle control to move down
     def go_down(self):
         if self.ycor() >= -220:
             self.bk(20)

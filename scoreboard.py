@@ -12,6 +12,7 @@ class Scoreboard(Turtle):
         self.goto(0, 190)
         self.display_score()
 
+    # Displays the current score for both players
     def display_score(self):
         self.clear()
         self.write(f"{self.score1} {self.score2}", font=("Courier", 80, "bold"), align="center")
@@ -22,6 +23,7 @@ class Scoreboard(Turtle):
         else:
             self.score2 += 1
 
+    # Displays Game Over on the screen and stops the game
     def game_over(self):
         self.goto(0, 0)
         if self.score1 > self.score2:
